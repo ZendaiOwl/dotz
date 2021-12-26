@@ -1,5 +1,6 @@
 #!/bin/bash
-# It will show a graphical representation of the current sub-directories without files in a few seconds,
+# It will show a graphical representation of the current working directory's sub-directories.
 # @ZendaiOwl
-ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+FORMAT="'%s\n' '%s\n' '%s\n'"
+for d in ./*; do printf "$FORMAT" "${d##./}"; done
 exit

@@ -11,7 +11,7 @@ printf '\e[48;5;%dm ' {0..255}; printf '\e[0m \n'
 
 color(){
     for c; do
-        printf '\e[48;5;%dm%03d' $c $c
+        printf '\e[48;5;%dm%03d' "$c" "$c"
     done
     printf '\e[0m \n'
 }
