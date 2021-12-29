@@ -1,5 +1,6 @@
 #!/bin/bash
-# @ZendaiOwl
+# @author Victor-ray ( ZendaiOwl )
+# https://github.com/ZendaiOwl/
 # This script records the output of a command to a text file
 
 log_file="script_output.txt"

@@ -1,4 +1,5 @@
 #!/bin/bash
+# You should have received a copy of the GNU General Public License
 # @ZendaiOwl
 # A colour scheme library for the terminal.
 #
@@ -14,26 +15,25 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 # 
-# You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 #
 
 BOLD="$(tput bold)"
-BLACK="$(tput setaf 0)"
+# BLACK="$(tput setaf 0)"
 DARK_RED="$(tput setaf 1)"
-DARK_GREEN="$(tput setaf 2)"
-DARK_ORANGE="$(tput setaf 3)"
-DARK_BLUE="$(tput setaf 4)"
+# DARK_GREEN="$(tput setaf 2)"
+# DARK_ORANGE="$(tput setaf 3)"
+# DARK_BLUE="$(tput setaf 4)"
 MAGENTA="$(tput setaf 5)"
-DARK_GRAY="$(tput setaf 6)"
-CYAN="$(tput setaf 7)"
+# DARK_GRAY="$(tput setaf 6)"
+# CYAN="$(tput setaf 7)"
 GREEN="$(tput setaf 10)"
-ORANGE="$(tput setaf 11)"
-BLUE="$(tput setaf 12)"
-RED_ORANGE="$(tput setaf 13)"
-GRAY="$(tput setaf 14)"
+# ORANGE="$(tput setaf 11)"
+# BLUE="$(tput setaf 12)"
+# RED_ORANGE="$(tput setaf 13)"
+# GRAY="$(tput setaf 14)"
 WHITE="$(tput setaf 15)"
 
 NICE_ONE="$(tput setaf 51)"
@@ -89,3 +89,8 @@ purple()
 	echo "$PURPLE$STR$RESET"
 }
 }
+
+if [ "$1" == "nice" ]
+then
+	nice "$2"
+fi

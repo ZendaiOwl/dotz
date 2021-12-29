@@ -246,7 +246,8 @@ remove_array_dups() {
 
 random_array_element() {
     # Usage: random_array_element "array"
-    local arr=("$@")
+    local arr
+    arr=("$@")
     printf '%s\n' "${arr[RANDOM % $#]}"
 }
 
@@ -324,6 +325,7 @@ head() {
 # Get the number of lines in a file
 # Alternative to wc -l.
 # Example Function:
+# https://nextcloud.com/install/#instructions-server
 
 lines() {
     # Usage: lines "file"
@@ -336,7 +338,8 @@ lines() {
     # without the added test, the line isn't sent
     # to the loop.
     while IFS= read -r line || [ -n "$line" ]; do
-        lines=$((lines+1))
+    local lines
+    lines=$((lines+1))
     done < "$1"
 
     printf '%s\n' "$lines"

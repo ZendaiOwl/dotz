@@ -1,6 +1,5 @@
 #!/bin/bash
-# It will show a graphical representation of the current working directory's sub-directories.
+# My own version of "ls", listing the current working directory's contents.
 # @ZendaiOwl
-FORMAT="'%s\n' '%s\n' '%s\n'"
-for d in ./*; do printf "$FORMAT" "${d##./}"; done
+for d in ./*; do printf '%s\n' "$(tput setaf 15)${d##./}$(tput sgr0)"; done | column -s '\n'
 exit

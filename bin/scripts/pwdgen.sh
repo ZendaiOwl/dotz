@@ -9,6 +9,6 @@
 #
 # This one below uses the most commonly allowed password characters 
 
-< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-32}";echo;
 
 exit

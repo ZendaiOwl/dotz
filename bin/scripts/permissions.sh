@@ -6,12 +6,16 @@ WRITE="2 = Write ( w )"
 READ="4 = Read ( r )"
 
 overview()
-{ echo "
+{ echo 'You may need to know how to change permissions in numeric code in Linux.
+To do this you use numbers instead of “r”, “w”, or “x”:'
+	echo "
 ${NOPERMISSION}
 ${EXECUTE}
 ${WRITE}
 ${READ}
-"; }
+"
+	echo "Basically, you add up the numbers depending on the level of permission you want to give."
+values; }
 
 ZERO="0 = ---"
 ONE="1 = --x"
@@ -24,6 +28,7 @@ SEVEN="7 = rwx"
 
 values()
 { echo "
+${ZERO}
 ${ONE}
 ${TWO}
 ${THREE}
@@ -41,7 +46,8 @@ NOTE='Note that “r” is for read, “w” is for write, and “x” is for ex
 This only changes the permissions for the owner of the file.'
 
 userPermissions()
-{ echo "
+{ echo "To change a directory's permissions in Linux, use the following:"
+	echo "
 ${USER1}
 ${USER2}
 ${USER3}
@@ -55,11 +61,16 @@ GROUP3="chmod o+w FILE"
 GROUP4="chmod o-rwx DIRECTORY"
 
 groupOwnerPermissions()
-{ echo "
+{ echo 'The command for changing directory permissions for group owners is similar,
+but add a “g” for group or “o” for users:'
+	echo "
 ${GROUP1}
 ${GROUP2}
 ${GROUP3}
-${GROUP4}"; }
+${GROUP4}
+"
+	echo 'To change directory permissions for everyone,
+use “u” for users, “g” for group, “o” for others, and “ugo” or “a” (for all).'; }
 
 GROUP5="chmod ugo+rwx DIRECTORY 	to give read, write, and execute to everyone."
 GROUP6="chmod a=r DIRECTORY 		to give only read permission for everyone."
@@ -67,13 +78,16 @@ GROUP6="chmod a=r DIRECTORY 		to give only read permission for everyone."
 groupPermissions()
 { echo "
 ${GROUP5}
-${GROUP6}"; }
+${GROUP6}
+"; }
 
 CHANGE1="chgrp GROUP FILE"
 CHANGE2="chgrp GROUP DIRECTORY"
 
 assignGroup()
-{ echo "
+{ echo "Issuing these commands change or assign groups to files and directories in Linux.
+Note that the group must exit before you can assign groups to files and directories."
+	echo "
 ${CHANGE1}
 ${CHANGE2}
 "; }
@@ -101,7 +115,8 @@ NUMERIC2="chmod 700 DIRECTORY 	will give read, write, and execute permissions fo
 NUMERIC3="chmod 327 DIRECTORY 	execute(3) permission for user, w(2) for the group, and rwx(7) for users."
 
 numeric()
-{ echo "
+{ echo "[ Example ]"
+	echo "
 ${NUMERIC1}
 ${NUMERIC2}
 ${NUMERIC3}"; }
@@ -110,53 +125,69 @@ separator() { echo '
 .·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.
 	'; }
 
-separator
+all()
+{
+	separator
+	userPermissions
+	separator
+	groupOwnerPermissions
+	separator
+	assignGroup
+	separator
+	owner
+	separator
+	overview
+	values
+	numeric
+	separator
+	echo "As you can see, there are several options when it comes to permissions.
+	You have the capability to dictate usability among users.
+	While it may be easier to just give all permission to everyone, it may end up biting you in the end.
+	So choose wisely."; }
 
-echo "To change a directory's permissions in Linux, use the following:"
+help() 
+{ echo "Options: 
+-o|--overview	-u|--user	-g|--group	-a|--assign 
+-n|--numeric	-h|--help	-v|--values	-l|--list";
+# 	echo "Options: 
+# -o|--overview	-u|--user	
+# -g|--group	-a|--assign 
+# -n|--numeric	-h|--help	
+# -v|--values	-l|--list";
+}
 
-userPermissions
-
-separator
-
-echo 'The command for changing directory permissions for group owners is similar,
-but add a “g” for group or “o” for users:'
-
-groupOwnerPermissions
-
-echo 'To change directory permissions for everyone,
-use “u” for users, “g” for group, “o” for others, and “ugo” or “a” (for all).'
-
-separator
-
-echo "Issuing these commands change or assign groups to files and directories in Linux.
-Note that the group must exit before you can assign groups to files and directories."
-
-assignGroup
-
-separator
-
-owner
-
-separator
-
-echo 'You may need to know how to change permissions in numeric code in Linux.
-To do this you use numbers instead of “r”, “w”, or “x”:'
-
-overview
-
-echo "Basically, you add up the numbers depending on the level of permission you want to give."
-
-values
-
-echo "[ Example ]"
-
-numeric
-
-separator
-
-echo "As you can see, there are several options when it comes to permissions.
-You have the capability to dictate usability among users.
-While it may be easier to just give all permission to everyone, it may end up biting you in the end.
-So choose wisely."
+if [ $# -eq 0 ]; then
+	all
+else
+	case $1 in
+	-l|--list)
+		all
+		;;
+	-o|--overview)
+		overview
+		;;
+	-u|--user)
+		userPermissions
+		;;
+	-g|--group)
+		groupOwnerPermissions
+		;;
+	-a|--assign)
+		assignGroup
+		;;
+	-n|--numeric)
+		numeric
+		;;
+		-h|--help)
+			help
+			;;
+		-v|--values)
+			values
+			;;
+		*)
+			echo "Unknown option: $1"
+			;;
+	esac
+fi
 
 exit 0
