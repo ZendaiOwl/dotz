@@ -1,68 +1,94 @@
 #!/bin/bash
-# @author Victor-ray ( ZendaiOwl )
-# https://github.com/ZendaiOwl/
 # This script records the output of a command to a text file
+# @ZendaiOwl
+# Colours
+colour() {
+if [ $# -lt 1 ]; then
+	echo "$(tput setaf "$1")$1$(tput sgr0)"
+elif [ $# -eq 2 ] && [ "$1" -gt 0 ] && [ "$1" -lt 256 ]; then
+			echo "$(tput setaf "$1")$2$(tput sgr0)"
+elif [ $# -eq 4 ] && 
+		[ "$1" -gt 0 ] && [ "$1" -lt 256 ] &&
+		[ "$3" -gt 0 ] && [ "$3" -lt 256 ]; then
+			echo "$(tput setaf "$1")$2$(tput sgr0)$(tput setaf "$3")$4$(tput sgr0)"
+elif [ $# -eq 6 ] &&
+		[ "$1" -gt 0 ] && [ "$1" -lt 256 ] && 
+		[ "$3" -gt 0 ] && [ "$3" -lt 256 ] && 
+		[ "$5" -gt 0 ] && [ "$5" -lt 256 ]; then
+			echo "$(tput setaf "$1")$2$(tput sgr0)$(tput setaf "$3")$4$(tput sgr0)$(tput setaf "$5")$6$(tput sgr0)"
+elif [ $# -eq 8 ] &&
+		[ "$1" -gt 0 ] && [ "$1" -lt 256 ] && 
+		[ "$3" -gt 0 ] && [ "$3" -lt 256 ] && 
+		[ "$5" -gt 0 ] && [ "$5" -lt 256 ] &&
+		[ "$7" -gt 0 ] && [ "$7" -lt 256 ]; then
+			echo "$(tput setaf "$1")$2$(tput sgr0)$(tput setaf "$3")$4$(tput sgr0)$(tput setaf "$5")$6$(tput sgr0)$(tput setaf "$7")$8$(tput sgr0)"
+else
+	for i in "${@:2}"; do printf '%s ' "$(tput setaf "$1")$i$(tput sgr0)"; done
+	printf '\n'
+fi
+}
 
 log_file="script_output.txt"
 
-rec() { echo "$(tput setaf 87):: Recording :: $(tput setaf 226)$1$(tput setaf 87) :: $log_file ::$(tput sgr0)"
-		:>./"$log_file"
-		$1 | tee -a "$log_file"
-		echo "$(tput setaf 46):: END ::$(tput sgr0)"; exit 0; }
+rec() { colour 46 "Recording " 226 "$1" 15 " to " 226 "$log_file";
+		:>./"$log_file";
+		$1 | tee -a "$log_file";
+		colour 46 "Recording " 48 "Complete!"; exit; }
 
-rec_file() { echo "$(tput setaf 87):: Recording :: $(tput setaf 226)$1$(tput setaf 87) :: $(tput setaf 226)$2$(tput setaf 87) ::$(tput sgr0)"
-			:>./"$2"
-			$1 | tee -a "$2"; exit 0; }
+rec_file() { colour 46 "Recording " 226 "$1" 15 " to " 226 "$2";
+			:>./"$2";
+			$1 | tee -a "$2";
+			colour 46 "Recording of " 226 "$1" 48 " Complete!"; exit; }
 
-append() { echo "$(tput setaf 50):: Appending :: $(tput setaf 226)$1$(tput setaf 50) ::$(tput sgr0)" | tee -a "$log_file"
-			$1 | tee -a "$log_file"
-			echo "$(tput setaf 46):: END :: $(tput setaf 226)$1$(tput setaf 46) ::$(tput sgr0)"; exit 0; }
+append() { colour 46 "Appending " 226 "$1" 15 " to " 226 "$log_file";
+			$1 | tee -a "$log_file";
+			colour 46 "Recording of " 226 "$1" 48 " Complete!"; exit; }
 
-append_file() { echo "$(tput setaf 50):: Appending :: $(tput setaf 226)$1$(tput setaf 50) :: $(tput setaf 226)$2$(tput setaf 50) ::$(tput sgr0)" | tee -a "$log_file"
-				$1 | tee -a "$2"
-				echo "$(tput setaf 46):: END :: Output written to $2 ::$(tput sgr0)"; exit 0; }
+append_file() { colour 46 "Appending " 226 "$1" 15 " to " 226 "$2";
+				$1 | tee -a "$2";
+				colour 46 "Recording of " 226 "$1" 48 " Complete!"; exit; }
 
-eXit() { echo "$(tput setaf 46):: END :: $(tput setaf 226)Exiting..$(tput setaf 46) ::$(tput sgr0)"; exit 0; }
-invalid() { echo "$(tput setaf 196):: END :: Invalid choice :: $input ::$(tput sgr0)"; exit 0; }
+eXit() { colour 15 "Recording cancelled. Exiting.."; exit; }
+invalid() { colour 196 "ERROR " 15 "Invalid choice: " 226 "$1"; exit; }
 
 if [ $# -eq 0 ]
 then
-	echo "	$(tput setaf 196):: ERROR :: Missing command argument to record ::$(tput sgr0)"
+	colour 196 "ERROR " 15 "No command arguments to record supplied";
 elif [ $# -eq 1 ]
 then
 	[[ -f "$log_file" ]] && {
-		read -rp "$log_file $(tput setaf 226)exist, append? (y/n)$(tput sgr0) " input
+		read -rp "$(tput setaf 226)$log_file$(tput sgr0) exist, append? (y/n)" input;
 		if [ "$input" == "y" ] || [ "$input" == "Y" ]
 		then
-			append "$@"
+			append "$@";
 		elif [ "$input" == "n" ] || [ "$input" == "N" ]
 		then
-			eXit
+			eXit;
 		else
-			invalid "$input"
+			invalid "$input";
 		fi
 		}
 	if [ ! -f "$log_file" ]
 	then
-		rec "$@"
+		rec "$@";
 	fi
 elif [ $# -eq 2 ]
 then
 	[[ -f $2 ]] && {
-		read -rp "$2 $(tput setaf 226)exists, append? (y/n) $(tput sgr0)" input
+		read -rp "$2 $(tput setaf 226)exists$(tput sgr0), append? (y/n)" input;
 		if [ "$input" == "y" ] || [ "$input" == "Y" ]
 		then
-			append_file "$@"
+			append_file "$@";
 		elif [ "$input" == "n" ] || [ "$input" == "N" ]
 		then
-			eXit
+			eXit;
 		else
-			invalid "$input"
+			invalid "$input";
 		fi
 		}
-	rec_file "$@"
+	rec_file "$@";
 else
-	echo "$(tput setaf 196):: ERROR :: Too many arguments :: [ Command to record output ] + [ Filename ] ::$(tput sgr0)"
+	colour 196 "ERROR " 15 ": Invalid number of arguments";
 	exit 0
 fi
 exit
