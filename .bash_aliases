@@ -11,7 +11,7 @@ alias permission=permissions.sh
 # Generates a password using /urandom
 alias pwdgen=pwdgen.sh
 # Records the output of a command to a textfile 
-alias rec=record.sh "$@"
+alias rec=record.sh
 # Records an interactive terminal session - Do Not Use With Scripts!
 alias rec-interact=rec-interactive.sh
 # A shortcut for killing processes that are retained when the
@@ -24,4 +24,5 @@ alias emote=emojis.sh
 # Replace text in a file, $1 = old text, $2 = new text, $3 = file/path to file
 alias replace=replace.sh
 # For my dotfiles, configurations and scripts
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
+alias dotz="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
+
