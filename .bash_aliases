@@ -25,4 +25,6 @@ alias emote=emojis.sh
 alias replace=replace.sh
 # For my dotfiles, configurations and scripts
 alias dotz="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
+# Shortcut for micro
+alias m="micro"
 
