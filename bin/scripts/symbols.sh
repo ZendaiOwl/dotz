@@ -111,6 +111,21 @@
 # Neckbeard OS
 # 𝕹𝖊𝖈𝖐𝖇𝖊𝖆𝖗𝖉 𝕺𝕾
 
+# Lockpad
+# 🔒 U+1F512
+
+# Music note
+# ♬ U+266C
+
+# Airplane
+# ✈ U+2708
+
+# Star
+# ☆ U+2606
+
+# Ballot box with X
+# ☒ U+2612
+
 # Beautiful old style english alphabet:
 #
 ### Lower case letters
