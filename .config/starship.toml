@@ -1,8 +1,13 @@
 # Use custom format
 format = """
-[┌────────────────────────](bold green)
-[│](bold green)$directory$rust$package
+[┌────────────](bold green)
+[│](bold green) $directory$rust$package
 [└࿓❯](bold green) """
+
+# format = """
+# [┌───┤$hostname├───](bold green)
+# [│](bold green) $directory$rust$package
+# [└࿓❯](bold green) """
 
 # format = """
 # [┌──🢔 ☾ ♠ ♥ ∞ Z𝖊𝖓𝖉𝖆𝖎 ∞ ♣ ♦ 🔒](bold green)
