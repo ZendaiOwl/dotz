@@ -1,8 +1,13 @@
 # Use custom format
 format = """
-[┌───────────────────](bold green)
-[│](bold green)$directory$rust$package
-[└─>](bold green) """
+[┌─🢔 ☾ ♠ ♥ Z𝖊𝖓𝖉𝖆𝖎 ♣ ♦ ∞](bold green)
+[│](bold green) $directory$rust$package
+[└࿓❯](bold green) """
+
+# format = """
+# [┌───────────────────────](bold green)
+# [│](bold green)$directory$rust$package
+# [└࿓❯](bold green) """
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -13,4 +18,34 @@ add_newline = false
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = true
+disabled = false
+
+# Go language module
+[golang]
+format = "via [🏎💨 $version](bold cyan) "
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
+disabled = false
+
+# Java language module
+[java]
+symbol = "☕"
+
+# Git metrics module
+[git_metrics]
+added_style = "bold blue"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+# Git status module 
+[git_status]
+conflicted = "🏳"
+up_to_date = "✓"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"

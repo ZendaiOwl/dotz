@@ -13,30 +13,20 @@ ${NOPERMISSION}
 ${EXECUTE}
 ${WRITE}
 ${READ}
-"
-	echo "Basically, you add up the numbers depending on the level of permission you want to give."
-values; }
-
-ZERO="0 = ---"
-ONE="1 = --x"
-TWO="2 = -w-"
-THREE="3 = -wx"
-FOUR="4 = r-"
-FIVE="5 = r-x"
-SIX="6 = rw-"
-SEVEN="7 = rwx"
+"; }
 
 values()
-{ echo "
-${ZERO}
-${ONE}
-${TWO}
-${THREE}
-${FOUR}
-${FIVE}
-${SIX}
-${SEVEN}
-"; }
+{ 
+echo 'Basically, you add up the numbers depending on the level of permission you want to give.
+0 = ---
+1 = --x
+2 = -w-
+3 = -wx
+4 = r-
+5 = r-x
+6 = rw-
+7 = rwx
+'; }
 
 USER1="chmod +rwx FILE 	to add permissions."
 USER2="chmod -rwx DIRECTORY 	to remove permissions."
@@ -140,10 +130,10 @@ all()
 	values
 	numeric
 	separator
-	echo "As you can see, there are several options when it comes to permissions.
-	You have the capability to dictate usability among users.
-	While it may be easier to just give all permission to everyone, it may end up biting you in the end.
-	So choose wisely."; }
+echo "As you can see, there are several options when it comes to permissions.
+You have the capability to dictate usability among users.
+While it may be easier to just give all permission to everyone, it may end up biting you in the end.
+So choose wisely."; }
 
 help() 
 { echo "Options: 
