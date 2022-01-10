@@ -25,4 +25,7 @@ alias emote=emojis.sh
 alias replace=replace.sh
 # For my dotfiles, configurations and scripts
 alias dotz="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
-
+# Shortcut for Micro terminal text editor
+alias m="micro"
+#Shortcut for connecting to my raspberry pi in my local network
+alias berry="ssh -p 3399 zendai@berrybox.local"

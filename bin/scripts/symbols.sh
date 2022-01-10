@@ -54,6 +54,8 @@
 # ↕ 	: Up Down Arrow
 # ⬍ 	: Up Down Black Arrow
 
+# 💮 ⚘ 🎕  ᪥  🌸  ᪥ 💠 🎴
+
 # ↖ ↗ ↘ ↙ ⇱ ⇲ ⤣ ⤤ ⤥ ⤦ ➶ ➴ ➷ ➹ ➘ ➚ 	: Arrows
 
 # 🢔 🢖 🢕 🢗 : Arrows Within Triangle Arrowhead
@@ -95,7 +97,7 @@
 # ℐ 	: Script capital I
 # ℒ 	: Script capital L
 # ℳ 	: Script capital M
-# ℴ 	: Script small O
+# ℴ 		: Script small O
 # ℘ 	: Script capital P
 # ℛ 	: Script capital R
 
