@@ -8,13 +8,13 @@ red="$(tput setaf 196)"
 reset="$(tput sgr0)"
 for d in ./*
 do 
-	if [ -f "${d}" ]; then
+	if [ -f "$d" ]; then
 	printf '%s\n' "$fil${d##./}$reset"
-	elif [ -d "${d}" ]; then
+	elif [ -d "$d" ]; then
 	printf '%s\n' "$direc${d##./}$reset"
 	else
 	printf '%s\n' "$red${d##./}$reset"
 	fi
-done | column -c 2
+done | column -txc 12
 
 exit
