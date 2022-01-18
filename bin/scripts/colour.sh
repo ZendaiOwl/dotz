@@ -13,8 +13,8 @@ elif [ "$#" -eq 4 ] &&
 		[ "$1" -gt 0 ] && [ "$1" -lt 256 ] &&
 		[ "$3" -gt 0 ] && [ "$3" -lt 256 ]; then
 		reset="$(tput sgr0)"
-		c1="$(tput setaf "$1")"
-		c2="$(tput setaf "$3")"
+		c1="$(tput setaf $1)"
+		c2="$(tput setaf $3)"
 			printf '%s ' "$c1$2$c2$4$reset"
 			printf '\n';
 elif [ "$#" -eq 6 ] &&
@@ -33,10 +33,10 @@ elif [ "$#" -eq 8 ] &&
 		[ "$5" -gt 0 ] && [ "$5" -lt 256 ] &&
 		[ "$7" -gt 0 ] && [ "$7" -lt 256 ]; then
 		reset="$(tput sgr0)"
-		c1="$(tput setaf "$1")"
-		c2="$(tput setaf "$3")"
-		c3="$(tput setaf "$5")"
-		c4="$(tput setaf "$7")"
+		c1="$(tput setaf $1)"
+		c2="$(tput setaf $3)"
+		c3="$(tput setaf $5)"
+		c4="$(tput setaf $7)"
 			printf '%s' "$c1$2$c2$4$c3$6$c4$8$reset"
 			printf '\n';
 else
