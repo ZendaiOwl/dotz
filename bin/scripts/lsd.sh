@@ -9,13 +9,13 @@ reset="$(tput sgr0)"
 for d in ./*
 do 
 	if [ -f "$d" ]; then
-	printf '%-48s' "$fil${d##./}$reset"
+	OUT="$fil${d##./}$reset"
 	elif [ -d "$d" ]; then
-	printf '%-48s' "$directory${d##./}$reset"
+	OUT="$directory${d##./}$reset"
 	else
-	printf '%-48s' "$red${d##./}$reset"
+	OUT="$red${d##./}$reset"
 	fi
-printf '\n'
-done | column -s '\n'
+printf '%-48s\n' ${OUT}
+done | column 
 
 exit
