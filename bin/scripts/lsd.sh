@@ -15,7 +15,7 @@ do
 	else
 	OUT="$red${d##./}$reset"
 	fi
-printf '%-48s\n' ${OUT}
+printf '%-48s\n' "$OUT"
 done | column 
 
 exit
