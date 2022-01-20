@@ -12,14 +12,14 @@
 # 	White		\e[0;39m || \033[0;39m
 # 	
 # 	Background Colours
-#   Black        \e[0;40m || \033[0;40m
-#   Red          \e[0;41m || \033[0;41m
-#   Green        \e[0;42m || \033[0;42m
-#   Yellow       \e[0;43m || \033[0;43m
-#   Blue         \e[0;44m || \033[0;44m
-#   Purple       \e[0;45m || \033[0;45m
-#   Cyan         \e[0;46m || \033[0;46m
-#   White        \e[0;47m || \033[0;47m
+# 	Black        \e[0;40m || \033[0;40m
+# 	Red          \e[0;41m || \033[0;41m
+# 	Green        \e[0;42m || \033[0;42m
+# 	Yellow       \e[0;43m || \033[0;43m
+# 	Blue         \e[0;44m || \033[0;44m
+# 	Purple       \e[0;45m || \033[0;45m
+# 	Cyan         \e[0;46m || \033[0;46m
+# 	White        \e[0;47m || \033[0;47m
 BLACK='\e[0;30m'
 RED='\e[0;31m'
 GREEN='\e[0;32m'
