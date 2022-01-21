@@ -3,17 +3,32 @@
 # This is my second take on writing my own 'ls' function.
 # This script prints the content of the specified directory.
 # The 1st given argument is processed as the specified directory to print.
-# If no directory is given as command args, it prints the $HOME dir for the 
-# invoking user. This can be disabled by commenting out the line
-# dir="${dir:=$HOME}" below.
+# Some colours below
+RD='\033[0;31m'
+GR='\033[0;32m'
+YW='\033[0;33m'
+BL='\033[0;34m'
+WT='\033[0;37m'
+NC='\033[0;0m'
 dir="$1"
-dir="${dir:=$HOME}"
-if [[ -d "$dir" ]]; then
+# dir="${dir:=$HOME}"
+if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
-		printf '%-6s\n' "${files##*/}"
+	if [[ -d $files ]]; then
+		OUT="$YW${files##*/}"
+	elif [[ -f $files ]]; then
+		OUT="$WT${files##*/}"
+	else
+		OUT="$RD${files##*/}"
+	fi
+	printf '%b%s%b\n' "$OUT$NC"
 	done | column
 else
-	printf '%s\n' "$1: Directory not found."
+	if [[ -z $dir ]]; then
+		printf '%s\n' "No directory specified."
+	else
+		printf '%s\n' "$dir: Directory not found."
+	fi
 fi
 
