@@ -42,13 +42,13 @@ if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
 	if [[ -d $files ]]; then
-		OUT="$YW${files##*/}"
+		DIR="${files##*/}"
 	elif [[ -f $files ]]; then
-		OUT="$WT${files##*/}"
+		FILE="${files##*/}"
 	else
-		OUT="$RD${files##*/}"
+		OTHER="${files##*/}"
 	fi
-	printf "%b%-s$NC\n" ${OUT}
+	printf "$YW%-12s\t $WT%-12s\t $OTHER%-12s$NC\n" ${DIR} ${FILE} ${OTHER}
 	done | column
 else
 	if [[ -z $dir ]]; then
