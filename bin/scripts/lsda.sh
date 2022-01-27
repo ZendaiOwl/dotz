@@ -48,7 +48,7 @@ if [[ -e $dir ]] && [[ -d $dir ]]; then
 	else
 		OUT="$RD${files##*/}"
 	fi
-	printf "%b%-.8s$NC\n" ${OUT}
+	printf '%b%-s\e[0m\n' ${OUT}
 	done | column
 else
 	if [[ -z $dir ]]; then
