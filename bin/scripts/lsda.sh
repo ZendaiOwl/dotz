@@ -30,11 +30,11 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-RD='\e[0;31m'
-GR='\e[0;32m'
-YW='\e[0;33m'
-BL='\e[0;34m'
-WT='\e[0;39m'
+RD='\e[31m'
+GR='\e[32m'
+YW='\e[33m'
+BL='\e[34m'
+WT='\e[39m'
 NC='\e[0m'
 dir="$1"
 # dir="${dir:=$HOME}"
@@ -48,7 +48,7 @@ if [[ -e $dir ]] && [[ -d $dir ]]; then
 	else
 		OUT="$RD${files##*/}$NC"
 	fi
-	printf "%b%-6s%b\n" ${OUT}
+	printf "%b%-s%b\n" ${OUT}
 	done | column
 else
 	if [[ -z $dir ]]; then
