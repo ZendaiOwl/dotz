@@ -30,25 +30,12 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-RD='\e[31m'
-GR='\e[32m'
-YW='\e[33m'
-BL='\e[34m'
-WT='\e[39m'
-NC='\e[0m'
-dir="$1"
 # dir="${dir:=$HOME}"
+dir=$1
 if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
-	if [[ -d $files ]]; then
-		OUT="$YW${files##*/}"
-	elif [[ -f $files ]]; then
-		OUT="$WT${files##*/}"
-	else
-		OUT="$RD${files##*/}"
-	fi
-	printf '%b%-s\e[0m\n' ${OUT}
+	printf '%-6.24s \n' "${files##*/}"
 	done | column
 else
 	if [[ -z $dir ]]; then
