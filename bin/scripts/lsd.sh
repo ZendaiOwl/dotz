@@ -32,13 +32,13 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-RD='\e[31m'
-GR='\e[32m'
-YW='\e[33m'
-BL='\e[34m'
-MG='\e[35m'
-WT='\e[39m'
-NC='\e[0m'
+RD=$'\033[31m'
+GR=$'\033[32m'
+YW=$'\033[33m'
+BL=$'\033[34m'
+MG=$'\033[35m'
+WT=$'\033[39m'
+NC=$'\033[0m'
 dir=$1
 if [[ -z $1 ]]; then
 	for d in ./*
@@ -50,9 +50,8 @@ if [[ -z $1 ]]; then
 		else
 			OUT="$RD${d##*/}$NC"
 		fi
-	# printf "%b$OUT%b\n"
-	printf "%b%-s%b\n" ${OUT}
-	done | column
+	printf '%-6.12s\n' "$OUT"
+	done
 else
 	if [[ -e $1 ]]; then
 		for d in "$1"/*
@@ -64,7 +63,7 @@ else
 			else
 				OUT="$RD${d##*/}$NC"
 			fi
-		printf "%b%-s%b\n" ${OUT}
+		printf '%b%-s%b\n' "$OUT"
 		done | column
 	else
 		printf "%s\n" "$1: Directory not found."
