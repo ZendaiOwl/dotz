@@ -1,5 +1,4 @@
-
-#!/usr/bin/env bash
+#!/bin/bash
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # My own first version of "ls" listing the current directory's contents.
 # This script does not show .files, lsda.sh does.
@@ -33,41 +32,32 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-RD=$'\e[31m'
-GR=$'\e[32m'
-GR=$'\e[32m'
-BL=$'\e[34m'
-MG=$'\e[35m'
-WT=$'\e[39m'
-NC=$'\e[0m'
 dir=$1
-if [[ ! -e $1 ]]; then
+if [[ -z $dir ]]; then
 	for d in ./*
-	do 
+	do
 		if [[ -d $d ]]; then
-			OUT="$YW${d##*/}$NC"
+			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
 		elif [[ -f $d ]]; then
-			OUT="${d##*/}"
+			printf '%-0.24s\n' "${d##*/}"
 		else
-			OUT="$RD${d##*/}$NC"
+			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
 		fi
-	printf '%b%-0.24s\n' "$OUT"
 	done | column
 else
-	if [[ -e $1 ]]; then
-		for d in ${1}/*
+	if [[ -e $dir ]]; then
+		for d in "$dir"/*
 		do
-			if [[ -d $d ]]; then
-				OUT="$YW${d##*/}$NC"
-			elif [[ -f $d ]]; then
-				OUT="${d##*/}"
-			else
-				OUT="$RD${d##*/}$NC"
-			fi
-		printf '%b%-5.24s \n' "$OUT"
+		if [[ -d $d ]]; then
+			printf '\e[33m%-0.24s\e[0m\n' "${d##*/}"
+		elif [[ -f $d ]]; then
+			printf '%-0.24s\n' "${d##*/}"
+		else
+			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
+		fi
 		done | column
 	else
-		printf '%-0.24s\n' "$1: Directory not found."
+		printf '%-0.24s\n' "$dir: Directory not found."
 	fi
 fi
 
