@@ -35,16 +35,10 @@ dir=$1
 if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
-		if [[ -d $files ]]; then
-			printf '\e[33m%-0.24s\e[0m\n' "${files##*/}"
-		elif [[ -f $files ]]; then
-			printf '%-0.24s\n' "${files##*/}"
-		else
-			printf '\e[31m%-0.24s\e[0m\n' "${files##*/}"
-		fi
+		printf '%-0.24s\n' "${files##*/}"
 	done | column
 else
-	if [[ -z $dir ]]; then
+	if [[ -z $dir ]] ; then
 		printf '%-0.24s\n' "No directory specified."
 	else
 		printf '%-0.24s\n' "$dir: Directory not found."
