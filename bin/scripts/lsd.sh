@@ -37,7 +37,7 @@ if [[ -z $dir ]]; then
 	for d in ./*
 	do
 		if [[ -d $d ]]; then
-			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
+			printf '\e[33m%-0.24s\e[0m\n' "${d##*/}"
 		elif [[ -f $d ]]; then
 			printf '%-0.24s\n' "${d##*/}"
 		else
