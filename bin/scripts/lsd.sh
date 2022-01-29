@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # My own first version of "ls" listing the current directory's contents.
@@ -32,15 +33,19 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-RD=$'\033[31m'
-GR=$'\033[32m'
-YW=$'\033[33m'
-BL=$'\033[34m'
-MG=$'\033[35m'
-WT=$'\033[39m'
-NC=$'\033[0m'
+# RD=$'\e[0;31m'
+# GR=$'\e[0;32m'
+# GR=$'\e[0;32m'
+# BL=$'\e[0;34m'
+# MG=$'\e[0;35m'
+# WT=$'\e[0;39m'
+# NC=$'\e[0m'
+YW=$(tput setaf 208)
+WT=$(tput setaf 15)
+RD=$(tput setaf 198)
+NC=$(tput sgr 0)
 dir=$1
-if [[ -z $1 ]]; then
+if [[ ! -e $1 ]]; then
 	for d in ./*
 	do 
 		if [[ -d $d ]]; then
@@ -50,11 +55,11 @@ if [[ -z $1 ]]; then
 		else
 			OUT="$RD${d##*/}$NC"
 		fi
-	printf '%-6.12s\n' "$OUT"
-	done
+	printf '%-0.24s\n' "$OUT"
+	done | column
 else
 	if [[ -e $1 ]]; then
-		for d in "$1"/*
+		for d in ${1}/*
 		do
 			if [[ -d $d ]]; then
 				OUT="$YW${d##*/}$NC"
@@ -63,10 +68,10 @@ else
 			else
 				OUT="$RD${d##*/}$NC"
 			fi
-		printf '%b%-s%b\n' "$OUT"
+		printf '%-4.24s\n' "$OUT"
 		done | column
 	else
-		printf "%s\n" "$1: Directory not found."
+		printf '%-0.24s\n' "$1: Directory not found."
 	fi
 fi
 
