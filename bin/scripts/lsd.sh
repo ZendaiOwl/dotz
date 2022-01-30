@@ -12,7 +12,7 @@
 # Black			30
 # Red			31
 # Green			32
-# Yellow		33
+# Yellow/Orange	33
 # Blue			34
 # Magenta		35
 # Cyan			36
@@ -24,7 +24,7 @@
 # Black			40
 # Red			41
 # Green			42
-# Yellow		43
+# Yellow/Orange	43
 # Blue			44
 # Magenta		45
 # Cyan			46
@@ -32,29 +32,34 @@
 # Default		48
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# printf '\e[33m %-12.48s \e[37m %-12.48s \e[36m %-12.48s \e[0m\n' "${DIR[@]}" "${FILE[@]}" "${OTHER[@]}" | column
 dir=$1
-if [[ -z $dir ]]; then
+# DIR=()
+# FILE=()
+# OTHER=()
+# OUT=()
+if [[ -z $dir ]] ; then
 	for d in ./*
 	do
-		if [[ -d $d ]]; then
-			printf '\e[33m%-0.24s\e[0m\n' "${d##*/}"
-		elif [[ -f $d ]]; then
-			printf '%-0.24s\n' "${d##*/}"
+		if [[ -d $d ]] ; then
+			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -f $d ]] ; then
+			printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
 		else
-			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
+			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
 		fi
 	done | column
 else
-	if [[ -e $dir ]]; then
+	if [[ -e $dir ]] ; then
 		for d in "$dir"/*
 		do
-		if [[ -d $d ]]; then
-			printf '\e[33m%-0.24s\e[0m\n' "${d##*/}"
-		elif [[ -f $d ]]; then
-			printf '%-0.24s\n' "${d##*/}"
-		else
-			printf '\e[31m%-0.24s\e[0m\n' "${d##*/}"
-		fi
+			if [[ -d $d ]] ; then
+				printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+			elif [[ -f $d ]] ; then
+				printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
+			else
+				printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+			fi
 		done | column
 	else
 		printf '%-0.24s\n' "$dir: Directory not found."

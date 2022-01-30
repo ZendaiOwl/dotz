@@ -35,7 +35,13 @@ dir=$1
 if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
-		printf '%-0.24s\n' "${files##*/}"
+		if [[ -d $files ]] ; then
+			printf '\e[33m%-12.48s\e[0m\n' "${files##*/}"
+		elif [[ -f $files ]] ; then
+			printf '\e[37m%-12.48s\e[0m\n' "${files##*/}"
+		else
+			printf '\e[36m%-12.48s\e[0m\n' "${files##*/}"
+		fi
 	done | column
 else
 	if [[ -z $dir ]] ; then
