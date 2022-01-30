@@ -43,23 +43,39 @@ if [[ -z $dir ]] ; then
 	do
 		if [[ -d $d ]] ; then
 			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -x $d ]] ; then
+			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+		# elif [[ -w $d ]] ; then
+			# printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -S $d ]] ; then
+			printf '\e[35m%-12.48s\e[0m\n' "${d##*/}"
 		elif [[ -f $d ]] ; then
 			printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -e $d ]] ; then
+			printf '\e[34m%-12.48s\e[0m\n' "${d##*/}"
 		else
-			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[31m%-12.48s\e[0m\n' "${d##*/}"
 		fi
 	done | column
 else
 	if [[ -e $dir ]] ; then
 		for d in "$dir"/*
 		do
-			if [[ -d $d ]] ; then
-				printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
-			elif [[ -f $d ]] ; then
-				printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
-			else
-				printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
-			fi
+		if [[ -d $d ]] ; then
+			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -x $d ]] ; then
+			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+		# elif [[ -w $d ]] ; then
+			# printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -S $d ]] ; then
+			printf '\e[35m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -f $d ]] ; then
+			printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -e $d ]] ; then
+			printf '\e[34m%-12.48s\e[0m\n' "${d##*/}"
+		else
+			printf '\e[31m%-12.48s\e[0m\n' "${d##*/}"
+		fi
 		done | column
 	else
 		printf '%-0.24s\n' "$dir: Directory not found."
