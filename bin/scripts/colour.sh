@@ -237,8 +237,6 @@ PFX="${G}INFO${Z}:"
 	# printf '%-7.12s %-12.36s\n' "${PFX}" "${@}"
 # }
 colour() {
-	local TEXT
-	TEXT="${W}${@}${Z}"
 	printf '%-0.48s\n' "${PFX} ${@}"
 }
 
