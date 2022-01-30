@@ -42,19 +42,19 @@ if [[ -z $dir ]] ; then
 	for d in ./*
 	do
 		if [[ -d $d ]] ; then
-			printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[32m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -x $d ]] ; then
-			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[33m%-12.36s\e[0m\n' "${d##*/}"
 		# elif [[ -w $d ]] ; then
 			# printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
 		elif [[ -S $d ]] ; then
-			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[36m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -f $d ]] ; then
-			printf '\e[39m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[39m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -e $d ]] ; then
-			printf '\e[34m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[34m%-12.36s\e[0m\n' "${d##*/}"
 		else
-			printf '\e[31m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[31m%-12.36s\e[0m\n' "${d##*/}"
 		fi
 	done | column
 else
@@ -62,19 +62,19 @@ else
 		for d in "$dir"/*
 		do
 		if [[ -d $d ]] ; then
-			printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[32m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -x $d ]] ; then
-			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[33m%-12.36s\e[0m\n' "${d##*/}"
 		# elif [[ -w $d ]] ; then
 			# printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
 		elif [[ -S $d ]] ; then
-			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[36m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -f $d ]] ; then
-			printf '\e[39m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[39m%-12.36s\e[0m\n' "${d##*/}"
 		elif [[ -e $d ]] ; then
-			printf '\e[34m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[34m%-12.36s\e[0m\n' "${d##*/}"
 		else
-			printf '\e[31m%-12.48s\e[0m\n' "${d##*/}"
+			printf '\e[31m%-12.36s\e[0m\n' "${d##*/}"
 		fi
 		done | column
 	else
