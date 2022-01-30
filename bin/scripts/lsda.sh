@@ -36,19 +36,19 @@ if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
 		if [[ -d $files ]] ; then
-			printf '\e[32m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[32m%-7.36s\e[0m\n' "${files##*/}"
 		elif [[ -x $files ]] ; then
-			printf '\e[33m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[33m%-7.36s\e[0m\n' "${files##*/}"
 		# elif [[ -w $d ]] ; then
 			# printf '\e[32m%-12.48s\e[0m\n' "${files##*/}"
 		elif [[ -S $files ]] ; then
-			printf '\e[36m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[36m%-7.36s\e[0m\n' "${files##*/}"
 		elif [[ -f $files ]] ; then
-			printf '\e[39m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[39m%-7.36s\e[0m\n' "${files##*/}"
 		elif [[ -e $files ]] ; then
-			printf '\e[34m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[34m%-7.36s\e[0m\n' "${files##*/}"
 		else
-			printf '\e[31m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[31m%-7.36s\e[0m\n' "${files##*/}"
 		fi
 
 	done | column
