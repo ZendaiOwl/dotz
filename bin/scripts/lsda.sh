@@ -35,12 +35,20 @@ dir=$1
 if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
-		if [[ -d $files ]] ; then
-			printf '\e[33m%-12.48s\e[0m\n' "${files##*/}"
-		elif [[ -f $files ]] ; then
-			printf '\e[37m%-12.48s\e[0m\n' "${files##*/}"
+		if [[ -d $d ]] ; then
+			printf '\e[33m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -x $d ]] ; then
+			printf '\e[36m%-12.48s\e[0m\n' "${d##*/}"
+		# elif [[ -w $d ]] ; then
+			# printf '\e[32m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -S $d ]] ; then
+			printf '\e[35m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -f $d ]] ; then
+			printf '\e[37m%-12.48s\e[0m\n' "${d##*/}"
+		elif [[ -e $d ]] ; then
+			printf '\e[34m%-12.48s\e[0m\n' "${d##*/}"
 		else
-			printf '\e[36m%-12.48s\e[0m\n' "${files##*/}"
+			printf '\e[31m%-12.48s\e[0m\n' "${d##*/}"
 		fi
 	done | column
 else
