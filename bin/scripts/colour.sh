@@ -1,50 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @ZendaiOwl
-# if [ "$#" -lt 1 ]; then
-	# colour="$1"
-	# reset="$(tput sgr0)"
-	# printf '%s' "$colour$1$reset"
-# elif [ "$#" -eq 2 ] && [ "$1" -gt 0 ] && [ "$1" -lt 256 ]; then
-		# reset="$(tput sgr0)"
-		# c1="$(tput setaf $1)"
-			# printf '%s' "$c1$2$reset"
-			# printf '\n';
-# elif [ "$#" -eq 4 ] &&
-		# [ "$1" -gt 0 ] && [ "$1" -lt 256 ] &&
-		# [ "$3" -gt 0 ] && [ "$3" -lt 256 ]; then
-		# reset="$(tput sgr0)"
-		# c1="$(tput setaf $1)"
-		# c2="$(tput setaf $3)"
-			# printf '%s ' "$c1$2$c2$4$reset"
-			# printf '\n';
-# elif [ "$#" -eq 6 ] &&
-		# [ "$1" -gt 0 ] && [ "$1" -lt 256 ] &&
-		# [ "$3" -gt 0 ] && [ "$3" -lt 256 ] &&
-		# [ "$5" -gt 0 ] && [ "$5" -lt 256 ]; then
-		# reset="$(tput sgr0)"
-		# c1="$(tput setaf $1)"
-		# c2="$(tput setaf $3)"
-		# c3="$(tput setaf $5)"
-			# printf '%s ' "$c1$2$c2$4$c3$6$reset"
-			# printf '\n';
-# elif [ "$#" -eq 8 ] &&
-		# [ "$1" -gt 0 ] && [ "$1" -lt 256 ] &&
-		# [ "$3" -gt 0 ] && [ "$3" -lt 256 ] &&
-		# [ "$5" -gt 0 ] && [ "$5" -lt 256 ] &&
-		# [ "$7" -gt 0 ] && [ "$7" -lt 256 ]; then
-		# reset="$(tput sgr0)"
-		# c1="$(tput setaf $1)"
-		# c2="$(tput setaf $3)"
-		# c3="$(tput setaf $5)"
-		# c4="$(tput setaf $7)"
-			# printf '%s' "$c1$2$c2$4$c3$6$c4$8$reset"
-			# printf '\n';
-# else
-# echo "Usage: [Colour nr1] [String 1] [Colour nr2] [String 2] [Colour nr3] [String 3] [Colour nr4] [String 4]"
-# echo "Maximum is 8, 4 colours and 4 strings"
-# echo "Allowed colour numbers are within the range of 1 to 255"
-# fi
-
 # General ASCII Codes
 # Name	decimal	octal	hex	C-escape	Ctrl-Key	Description
 # BEL	7	007	0x07	\a	^G	Terminal bell
@@ -100,29 +55,6 @@
 # ESC[7m	ESC[27m	set inverse/reverse mode
 # ESC[8m	ESC[28m	set hidden/invisible mode
 # ESC[9m	ESC[29m	set strikethrough mode.
-# 
-# 8-16 Colors
-# Color Name	Foreground Color Code	Background Color Code
-# Black			30						40
-# Red			31						41
-# Green			32						42
-# Yellow		33						43
-# Blue			34						44
-# Magenta		35						45
-# Cyan			36						46
-# White			37						47
-# Default		39						49
-# Reset			0						0
-# 
-# Color Name	Foreground Color Code	Background Color Code
-# Bright Black		90					100
-# Bright Red		91					101
-# Bright Green		92					102
-# Bright Yellow		93					103
-# Bright Blue		94					104
-# Bright Magenta	95					105
-# Bright Cyan		96					106
-# Bright White		97					107
 # 
 # 256 Colors
 # The following escape codes tells the terminal to use the given color ID:
@@ -260,8 +192,56 @@
 # - (keypad)	45	45	(0;149)	(0;164)
 # + (keypad)	43	43	(0;150)	(0;55)
 # 5 (keypad)	(0;76)	53	(0;143)	--
+# 8-16 Colors
+# Color Name	Foreground Color Code	Background Color Code
+# Black			30						40
+# Red			31						41
+# Green			32						42
+# Yellow		33						43
+# Blue			34						44
+# Magenta		35						45
+# Cyan			36						46
+# White			37						47
+# Default		39						49
+# Reset			0						0
+# 
+# Color Name	Foreground Color Code	Background Color Code
+# Bright Black		90					100
+# Bright Red		91					101
+# Bright Green		92					102
+# Bright Yellow		93					103
+# Bright Blue		94					104
+# Bright Magenta	95					105
+# Bright Cyan		96					106
+# Bright White		97					107
+# 256-bit colours
+# B=$(tput setaf 39)
+# Y=$(tput setaf 228)
+G=$(tput setaf 48)
+# O=$(tput setaf 208)
+W=$(tput setaf 15)
+Z=$(tput sgr0)
+# 16-bit colours
+# B='\e[34m'
+# G='\e[32m'
+# O='\e[33m'
+# W='\e[37m'
+# D='\e[39m'
+# Z='\e[0m'
+NAME=$1
+TEXT=$2
+PFX="${G}INFO${Z}:"
+# PFX="${NAME}"
 
+# colour() {
+	# printf '%-7.12s %-12.36s\n' "${PFX}" "${@}"
+# }
+colour() {
+	local TEXT
+	TEXT="${W}${@}${Z}"
+	printf '%-0.48s\n' "${PFX} ${@}"
+}
 
-echo "In development"
+printf '%-0.48s\n' "${PFX} ${W}${@}${Z}"
 
 exit

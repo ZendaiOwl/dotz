@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 EMOJIS='
 innocent-face:ʘ‿ʘ
 reddit-disapproval-face:ಠ_ಠ

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 # This script adds a directory or file to the .gitignore 
 # file in my local .dotz directory.
 PATHWAY=$1

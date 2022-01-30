@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 NOPERMISSION="0 = No Permission ( - )"
 EXECUTE="1 = Execute ( x )"

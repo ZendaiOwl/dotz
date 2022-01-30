@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # You should have received a copy of the GNU General Public License
 # @ZendaiOwl
 # A colour scheme library for the terminal.

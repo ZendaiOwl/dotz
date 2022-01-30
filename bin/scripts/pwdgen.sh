@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @ZendaiOwl
 # This function uses /dev/urandom to generate a password
 # randomly with commonly allowed password characters. 

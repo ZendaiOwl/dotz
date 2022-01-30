@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This command prints all the set variables in an environment
 printenv
 exit

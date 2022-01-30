@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # 	Text Colours
 # 	Black		\e[0;30m || \033[0;30m
 # 	Orange 		\e[0;31m || \033[0;31m

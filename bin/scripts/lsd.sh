@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # My own first version of "ls" listing the current directory's contents.
 # This script does not show .files, lsda.sh does.

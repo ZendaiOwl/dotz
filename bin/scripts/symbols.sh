@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Symbols
 # ࿓ 	: Tibetan Mark Initial Brda Rnying Yig Mgo Mdun Ma. 

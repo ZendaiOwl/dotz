@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # pure sh bible
 # A collection of pure POSIX sh alternatives to external processes.
 

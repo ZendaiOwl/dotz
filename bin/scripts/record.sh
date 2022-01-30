@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script records the output of a command to a text file
 # @ZendaiOwl
 # Colours

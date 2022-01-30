@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script prints my signature to the terminal or 
 # as STDOUT to a file or as another scripts STDIN.
 # @author Victor-ray ( ZendaiOwl )

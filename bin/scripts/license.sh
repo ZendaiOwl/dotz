@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo "Copyright (C) 2021  Victor-ray S. [ https://github.com/ZendaiOwl ]
 
 This program is free software; you can redistribute it and/or
