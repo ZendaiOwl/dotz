@@ -1,4 +1,5 @@
 #!/bin/bash
 # Depends on 'psmisc' package.
-sudo fuser -c /dev/loop0
+LOOP=$1
+sudo fuser -c /dev/loop${LOOP}
 exit
