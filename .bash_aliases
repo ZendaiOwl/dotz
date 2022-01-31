@@ -3,10 +3,10 @@ alias fullLicense=fullLicense.sh
 # Displays a minimal GNU v2 license in the teminal
 alias license=license.sh
 # List content in current working directory, does not show .files
-alias lsd=lsd.sh
+alias l=lsd.sh
 # List content in specified directory, does show .files.
 # If no directory is specified it shows the content of $HOME
-alias lsda=lsda.sh
+alias la=lsda.sh
 # List all directories and files in a tree structure 
 alias show=show.sh
 # Show Linux/UNIX permissions information in the terminal
