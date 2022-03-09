@@ -42,7 +42,8 @@ if [ -e "$GOPATH/bin" ]; then
 	PATH="$GOPATH/bin:$PATH"
 fi
 if [ -e "/home/zendai/bin/micro" ]; then
-	PATH="/home/zendai/bin/micro:$PATH"
+	EDITOR="/home/zendai/bin/micro"
+	PATH="$EDITOR:$PATH"
 fi
 
 # Go language PATH variables
