@@ -1,31 +1,50 @@
 #!/usr/bin/env bash
 # This script prints my signature to the terminal or 
 # as STDOUT to a file or as another scripts STDIN.
-# @author Victor-ray ( ZendaiOwl )
-
+# @author ZendaiOwl <victorray91@pm.me>
+# Signed-off-by: Zendai Owl <victorray91@pm.me>
+CLR="$(tput setaf 75)"
+ERR="$(tput setaf 196)"
+RS="$(tput sgr0)"
 author()
 {
 local author
-author="Victor-ray ( ZendaiOwl )"
-echo "$(tput setaf 75)$author$(tput sgr0)"
+author="@author ZendaiOwl <victorray91@pm.me>"
+echo -e "${CLR}$author${RS}"
+}
+
+signature()
+{
+local signature
+signature="Signed-off-by: Zendai Owl <victorray91@pm.me>"
+echo -e "${CLR}$signature${RS}"
 }
 
 username()
 {
 local username
-username="$(tput setaf 75)ZendaiOwl$(tput sgr0)"
-echo "$username"
+username="ZendaiOwl"
+echo -e "${CLR}$username${RS}"
 }
 
-if [ $# -eq 0 ]
-then
+all() {
+	local ALL
+	ALL="@author Zendai Owl <victorray91@pm.me>\nSigned-off-by: Zendai Owl <victorray91@pm.me>\nZendaiOwl"
+	echo -e "$ALL"
+}
+
+if [ $# -eq 0 ]; then
+  echo "I'm a teapot."
+elif [ "$*" == "--all" ]; then
+  all
+elif [ "$*" == "--author" ]; then
   author
-elif [ "$*" == "--github-username" ]
-then
+elif [ "$*" == "--signature" ]; then
+  signature
+elif [ "$*" == "--username" ]; then
   username
 else
-  echo "$(tput setaf 196)Invalid argument$(tput sgr0)"
+  echo "${ERR}Invalid argument${RS}"
 fi
-
 
 exit
