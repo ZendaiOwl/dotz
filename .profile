@@ -34,7 +34,19 @@ if [ -d "$HOME/bin/scripts" ]; then
 	PATH="$HOME/bin/scripts:$PATH"
 fi
 
+if [ -e "/home/zendai/go" ]; then
+	GOPATH="/home/zendai/go"
+	PATH="$GOPATH:$PATH"
+fi
+if [ -e "$GOPATH/bin" ]; then
+	PATH="$GOPATH/bin:$PATH"
+fi
+if [ -e "/home/zendai/bin/micro" ]; then
+	PATH="/home/zendai/bin/micro:$PATH"
+fi
+
 # Go language PATH variables
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/go/bin"
-export EDITOR="/home/zendai/bin/micro"
+# export PATH="$PATH:/usr/local/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
+# EDITOR variable for fm
+# export EDITOR="/home/zendai/bin/micro"
