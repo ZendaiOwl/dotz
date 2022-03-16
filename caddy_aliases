@@ -1,0 +1,54 @@
+# # # VARIABLES # # #
+CADLOG="/var/log/caddy/caddy.log"
+CADFILE="/etc/caddy/Caddyfile"
+
+# # # ALIASES # # #
+alias cadstart="systemCtl start caddy"
+alias cadstop="systemCtl stop caddy"
+alias cadenable="systemCtl enable caddy"
+alias cadisable="systemCtl disable caddy"
+alias cadreload="systemCtl reload caddy"
+alias cadrestart="systemCtl restart caddy"
+alias cadstatus="systemCtl status caddy"
+alias daemonreload="systemCtl daemon-reload"
+
+# # # FUNCTIONS # # #
+function systemCtl {
+	sudo systemctl ${@}
+}
+
+function cad {
+	sudo -u caddy -E ${@}
+}
+
+cadfile() {
+	cad /home/zen/.local/bin/micro ${CADFILE}
+}
+
+cadformat() {
+	cad caddy fmt --overwrite ${CADFILE}
+}
+
+cadlog() {
+	cad cat ${CADLOG} | jq -S ${@}
+}
+
+jsonlog() {
+	cad cat ${CADLOG} | jq -j ${@}
+}
+
+logtime() {
+	cad cat ${CADLOG} | jq -S '.ts | strflocaltime("%Y-%m-%d %H:%M:%S %Z")'
+}
+
+checklog() {
+	cad cat ${CADLOG} | tail | jq -S ${@}
+}
+
+checktime() {
+	cad cat ${CADLOG} | tail | jq -S '.ts | strflocaltime("%Y-%m-%d %H:%M:%S %Z")'
+}
+
+ts() {
+	cad cat ${CADLOG} | jq -S '.ts'
+}
