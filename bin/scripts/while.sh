@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euo pipefail
 INPUT_STRING=hello
 while [ "${INPUT_STRING}" != "bye" ]
 do

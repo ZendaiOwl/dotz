@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # @ZendaiOwl 
 # This is my second take on writing my own 'ls' function.

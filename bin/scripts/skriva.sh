@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euo pipefail
 
 CHARACTERS="
 A1:▄▀█

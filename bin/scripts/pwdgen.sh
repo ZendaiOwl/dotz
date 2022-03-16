@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # @ZendaiOwl
 # This function uses /dev/urandom to generate a password
 # randomly with commonly allowed password characters. 

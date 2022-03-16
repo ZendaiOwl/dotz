@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euo pipefail
 # From pre-built binary, with Shell.
 # To update simply re-run it.
 sh -c "$(sudo curl -fsSL https://starship.rs/install.sh)"

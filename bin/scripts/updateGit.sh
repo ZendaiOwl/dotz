@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 ADDIR=$1
 COMESSAGE=$2
 COMSG="࿓❯ ${COMESSAGE}"

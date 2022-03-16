@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # @ZendaiOwl
 # General ASCII Codes
 # Name	decimal	octal	hex	C-escape	Ctrl-Key	Description

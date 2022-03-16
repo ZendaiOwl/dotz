@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # Replaces text in a file
 # 1 = Old text
 # 2 = New text

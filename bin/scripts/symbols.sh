@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Symbols
 # ࿓ 	: Tibetan Mark Initial Brda Rnying Yig Mgo Mdun Ma. 

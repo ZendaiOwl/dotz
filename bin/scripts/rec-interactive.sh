@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 if [ ! -f x-terminal-session-interactive.txt ] ; then
 echo ":: Creating file :: x-terminal-session-interactive.txt ::"
 script x-terminal-session-interactive.txt

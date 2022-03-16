@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # This script prints my signature to the terminal or 
 # as STDOUT to a file or as another scripts STDIN.
 # @author ZendaiOwl <victorray91@pm.me>

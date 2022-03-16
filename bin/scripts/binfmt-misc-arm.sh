@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 UNREGISTER=0
 if [ "$1" == "unregister" ]; then

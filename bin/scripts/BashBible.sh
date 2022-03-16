@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # pure sh bible
 # A collection of pure POSIX sh alternatives to external processes.
 

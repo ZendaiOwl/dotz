@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 echo -e "
 Copyright $(date +'%Y') ZendaiOwl
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # This script records the output of a command to a text file
 # @ZendaiOwl
 # Colours

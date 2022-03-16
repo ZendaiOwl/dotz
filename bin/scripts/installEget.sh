@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 curl -o eget.sh https://zyedidia.github.io/eget.sh
 # Verify the hash
 # shasum -a 256 eget.sh

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 if (( $# < 3 )); then
   echo "Usage: chroot.sh IMAGE_FILE MOUNT_POINT ...CHROOT_ARGS"

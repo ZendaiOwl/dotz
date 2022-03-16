@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 NOPERMISSION="0 = No Permission ( - )"
 EXECUTE="1 = Execute ( x )"

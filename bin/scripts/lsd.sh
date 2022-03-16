@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # My own first version of "ls" listing the current directory's contents.
 # This script does not show .files, lsda.sh does.
