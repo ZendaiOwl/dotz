@@ -32,7 +32,12 @@ set -euo pipefail
 # Reset			0
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # dir="${dir:=$HOME}"
-dir=$1
+if [[ $# == 0 ]]; then
+	dir="$(pwd)"
+else
+	dir="$1"
+fi
+
 if [[ -e $dir ]] && [[ -d $dir ]]; then
 	for files in "$dir"/* "$dir"/.*
 	do
