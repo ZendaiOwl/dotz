@@ -7,6 +7,14 @@ set -euo pipefail
 CLR="$(tput setaf 75)"
 ERR="$(tput setaf 196)"
 RS="$(tput sgr0)"
+FNAME="Victor-ray";
+LNAME="S.";
+AUTHR="@AUTHOR";
+EMAIL="<victorray91@pm.me>";
+SIGN="${FNAME}, ${LNAME}";
+USRNAME="ZendaiOwl";
+signature="Signed-off-by: Victor-ray S. <victorray91@pm.me> (Zendai Owl)"
+
 author()
 {
 local author
@@ -17,8 +25,7 @@ echo -e "${CLR}$author${RS}"
 signature()
 {
 local signature
-signature="Signed-off-by: Zendai Owl <victorray91@pm.me>"
-echo -e "${CLR}$signature${RS}"
+echo -e "${CLR}$signature{[@]}${RS}";
 }
 
 username()
@@ -30,13 +37,14 @@ echo -e "${CLR}$username${RS}"
 
 all() {
 	local ALL
-	ALL="@author Zendai Owl <victorray91@pm.me>\nSigned-off-by: Zendai Owl <victorray91@pm.me>\nZendaiOwl"
-	echo -e "$ALL"
+	ALL="$signature";
+	echo -e "${ALL[@]}";
 }
 
 if [ $# -eq 0 ]; then
   echo "I'm a teapot."
-elif [ "$*" == "--all" ]; then
+  all
+elif [ "*" == "--all" ]; then
   all
 elif [ "$*" == "--author" ]; then
   author

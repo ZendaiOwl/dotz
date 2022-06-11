@@ -5,7 +5,7 @@ set -euo pipefail
 if [[ $# == 0 ]]; then
 	message="࿓❯ Updating Dotz scripts"
 else
-	message="࿓❯ $1"
+	message="࿓❯ $@"
 fi
 dotz="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
 ${dotz} add /home/zendai/bin/scripts/* || exit 1

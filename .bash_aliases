@@ -53,3 +53,12 @@ alias rd=rd.sh
 
 # Shortcut for updating the system
 alias update=update.sh
+
+# Shortcut for writing a note in current WD
+alias note=wNote.sh
+
+# Shows the bin/script directory
+alias rScripts=rScripts.sh
+
+# Shortcut for ssh connection to a Fedora Server VM in my local network
+alias owl="ssh owl@192.168.178.23 -L 8080:localhost:8080"
