@@ -1,6 +1,6 @@
 # Use custom format
 format = """
-[┌─ ](bold blue)[🖼🖱️🖌️ 🎨](white)[♬ ](cyan)[🌸](purple)[#️⃣ ](green)[🔮](bold blue)
+[┌─ ](bold blue)[🖼](white)[🖱️](cyan)[🖌️](silver) [🎨](green)[♬ ](cyan)[🌸](purple)[#️⃣ ](green)[🔮](bold blue)
 [│](bold blue) $directory$rust$package
 [└](bold blue)[࿓❯](bold green) """
 # 
